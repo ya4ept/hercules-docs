@@ -19,7 +19,7 @@ You will need to have Python3 installed, and install `mkdocs-material` and our l
 
 You can install it with:
 ```SH
-pip install mkdocs-material
+pip install mkdocs-material mkdocs-awesome-pages-plugin
 pip install -e ./hercscript-lexer # Optional, required for HercScript highlighting
 ```
 
