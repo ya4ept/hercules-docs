@@ -17,7 +17,7 @@ skilleffect("<skill name>", <number>);
 	The rest of this document hasn't been converted to Markdown yet.
 
 == Description ==
-This command displays visual and aural effects of given skill on [[RID|currently attached character]]. The number parameter is for skill whose visual effect involves displaying of a number (healing or damaging). Note, that this command will not actually use the skill, it is intended for scripts, which simulate skill usage by the [[NPC]], such as buffs, by setting appropriate status and displaying the skill's effect.
+This command displays visual and aural effects of given skill on [[RID|currently attached character]]. The number parameter is for skill whose visual effect involves displaying of a number (healing or damaging). Note, that this command will not actually use the skill, it is intended for scripts, which simulate skill usage by the [NPC](../../basics/npc.md), such as buffs, by setting appropriate status and displaying the skill's effect.
 
 == Examples ==
  [[mes]] "Be blessed!";

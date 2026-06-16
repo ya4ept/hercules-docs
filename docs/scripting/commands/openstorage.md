@@ -13,7 +13,7 @@ openstorage();
 	The rest of this document hasn't been converted to Markdown yet.
 
 == Description ==
-This will open the character's [[Kafra]] storage window on the client connected to the invoking character. It can be used from any kind of [[NPC]] or [[item script]], not just limited to Kafra Staff.
+This will open the character's [[Kafra]] storage window on the client connected to the invoking character. It can be used from any kind of [NPC](../../basics/npc.md) or [[item script]], not just limited to Kafra Staff.
 
 The storage window opens regardless of whether there are open NPC dialogs or not, but it is preferred to close the dialog before displaying the storage window, to avoid any disruption when both windows overlap.
 

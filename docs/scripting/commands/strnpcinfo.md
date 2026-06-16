@@ -13,7 +13,7 @@ strnpcinfo(<type>);
 	The rest of this document hasn't been converted to Markdown yet.
 
 ==Description==
-This function will return the various parts of the name of the calling [[NPC]]. Whatever it returns is determined by type.
+This function will return the various parts of the name of the calling [NPC](../../basics/npc.md). Whatever it returns is determined by type.
 
 ==Type Values==
 {| {| class="wikitable" border="1"
