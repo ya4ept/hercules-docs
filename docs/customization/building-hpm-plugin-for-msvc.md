@@ -129,15 +129,17 @@ This will now re-build your Hercules server while also integrating your plugin. 
 
 #### Adding your plugin to the configuration
 
-Finally, we will open the file <code>/conf/plugins.conf</code> and include the name of our new plugin into the list.
-  plugins_list: [
-  	/* Enable HPMHooking when plugins in use rely on Hooking */
-  	//"HPMHooking",
-  	//"db2sql",
-  	//"sample",
-  	//"other",
-  	"YourProject"
-  ]
+Finally, we will open the file `/conf/plugins.conf` and include the name of our new plugin into the list.
+```HercScript
+plugins_list: [
+  /* Enable HPMHooking when plugins in use rely on Hooking */
+  //"HPMHooking",
+  //"db2sql",
+  //"sample",
+  //"other",
+  "YourProject"
+]
+```
 
 ## Old Method
 
@@ -295,16 +297,16 @@ Add your code to the '''dance.c''' file, and then right-click the project you cr
 #### Step 20
 
 Add it to ''' /conf/plugins.conf'''
-<pre>
+```HercScript
 plugins_list: [
-	/* Enable HPMHooking when plugins in use rely on Hooking */
-	//"HPMHooking",
-	//"db2sql",
-	//"sample",
-	//"other",
-	"dance", // loads dance plugin
+  /* Enable HPMHooking when plugins in use rely on Hooking */
+  //"HPMHooking",
+  //"db2sql",
+  //"sample",
+  //"other",
+  "dance", // loads dance plugin
 ]
-</pre>
+```
 
 ### Notes
 * This guide is probably the worst I've ever written, if you can do better please hit the 'Edit' button, will be most welcome. - Ind

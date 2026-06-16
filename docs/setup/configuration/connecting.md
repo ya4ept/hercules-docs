@@ -71,21 +71,20 @@ GIT. Simply copy and paste the lines you wish to alter from the .conf file to th
 folder. Your /conf/import/char_conf.txt *and* /conf/import/map_conf.txt files should look as follows, with *no* changes
 made to \[\`conf/char-server.conf\`\](https://github.com/HerculesWS/Hercules/blob/stable/conf/char-server.conf) or
 \[\`conf/map-server.conf\`\](https://github.com/HerculesWS/Hercules/blob/stable/conf/map-server.conf):  
-<code>
 
-    // Server Communication username and password.
-    userid: [new user]
-    passwd: [new password]
+```HercScript
+// Server Communication username and password.
+userid: [new user]
+passwd: [new password]
+```
 
-</code>
+Your login table should match. Use this SQL query (or make the changes using your favourite SQL gui):
 
-Your login table should match. Use this SQL query (or make the changes using your favourite SQL gui): <code>
-
-    use databasename_rag;
-    UPDATE login
-    set `userid` = "[new user]", `user_pass` = "[new password]" where `account_id` = 1;
-
-</code>
+```sql
+use databasename_rag;
+UPDATE login
+set `userid` = "[new user]", `user_pass` = "[new password]" where `account_id` = 1;
+```
 
 After the user and password is set, you can move on down the page.
 
@@ -98,26 +97,27 @@ You can find this out by starting all the services that you need on the server a
 your console:
 
 **If using Windows:**  
-Goto Start, then click 'Run'. Type 'cmd' and press enter. Run the following command: <code>
+Goto Start, then click 'Run'. Type 'cmd' and press enter. Run the following command:
 
-    netstat -a
+```sh
+netstat -a
+```
 
-</code> **If using \*nix:** <code>
+**If using \*nix:**
 
-    $ lsof -i
-
-</code>
+```sh
+$ lsof -i
+```
 
 Once you have selected a port if you're going to change it, your /conf/import/login_conf.txt file should look as
 follows, with *no* changes made to
 \[\`conf/login-server.conf\`\](https://github.com/HerculesWS/Hercules/blob/stable/conf/login-server.conf) (again just
 copy pasting the lines we want to change from one file to the other):  
-<code>
 
-    // Login Server Port
-    login_port: [new port]
-
-</code>
+```HercScript
+// Login Server Port
+login_port: [new port]
+```
 
 ### Step 3. \[\`conf/char-server.conf\`\](https://github.com/HerculesWS/Hercules/blob/stable/conf/char-server.conf)
 
@@ -126,20 +126,17 @@ here.
 
 Firstly we should name our server:
 
-When setting server_name, be sure to not use spaces as it says. <code>
+When setting server_name, be sure to not use spaces as it says.
 
-    // Server name, use alternative character such as ASCII 160 for spaces.
-    // NOTE: Do not use spaces in the name, or guild emblems won't work client-side!
-    server_name: [new server name]
-
-</code>
-
-<code>
-
-    // Wisp name for server: used to send wisp from server to players (between 4 to 23 characters)
-    wisp_server_name: [new server name]
-
-</code>
+```HercScript
+// Server name, use alternative character such as ASCII 160 for spaces.
+// NOTE: Do not use spaces in the name, or guild emblems won't work client-side!
+server_name: [new server name]
+```
+```HercScript
+// Wisp name for server: used to send wisp from server to players (between 4 to 23 characters)
+wisp_server_name: [new server name]
+```
 
 Usually, Hercules will auto-detect your external and internal IP if the IP fields are [commented
 out](comments "wikilink"), but let's go ahead and remove the two slashes (//) from login_ip and char_ip.
@@ -149,34 +146,30 @@ The login_ip will point to the IP address where the login server will be running
 LAN IP of the login server's machine. If you are running a dedicated machine in a datacenter, or you know your IP is not
 going to change, you can set this to your WAN IP.
 
-<code>
-
-    // Login Server IP
-    // The character server connects to the login server using this IP address.
-    // NOTE: This is useful when you are running behind a firewall or are on
-    // a machine with multiple interfaces.
-    login_ip: [new ip here]
-
-</code>
+```HercScript
+// Login Server IP
+// The character server connects to the login server using this IP address.
+// NOTE: This is useful when you are running behind a firewall or are on
+// a machine with multiple interfaces.
+login_ip: [new ip here]
+```
 
 The char_ip parameter will **ALWAYS** be your WAN IP, no exceptions. This is the IP that the char-server will accept
 connections with.
 
-<code>
+```HercScript
+// Character Server IP
+// The IP address which clients will use to connect.
+// Set this to what your server's public IP address is.
+char_ip: [your wan ip here]
+```
 
-    // Character Server IP
-    // The IP address which clients will use to connect.
-    // Set this to what your server's public IP address is.
-    char_ip: [your wan ip here]
+If you changed the login_port in login-server.conf, this setting here will need to match it.
 
-</code>
-
-If you changed the login_port in login-server.conf, this setting here will need to match it. <code>
-
-    // Login Server Port
-    login_port: [new port]
-
-</code>
+```HercScript
+// Login Server Port
+login_port: [new port]
+```
 
 Make sure to make any changes in the import folder as always.
 
@@ -189,27 +182,23 @@ The char_ip will point to the IP address where the login server will be running.
 LAN IP of the char server's machine. If you are running a dedicated machine in a datacenter, or you know your IP is not
 going to change, you can set this to your WAN IP.
 
-<code>
-
-    // Character Server IP
-    // The map server connects to the character server using this IP address.
-    // NOTE: This is useful when you are running behind a firewall or are on
-    // a machine with multiple interfaces.
-    char_ip: [new ip here]
-
-</code>
+```HercScript
+// Character Server IP
+// The map server connects to the character server using this IP address.
+// NOTE: This is useful when you are running behind a firewall or are on
+// a machine with multiple interfaces.
+char_ip: [new ip here]
+```
 
 The map_ip parameter will **ALWAYS** be your WAN IP, no exceptions. This is the IP that the map-server will accept
 connections with.
 
-<code>
-
-    // Map Server IP
-    // The IP address which clients will use to connect.
-    // Set this to what your server's public IP address is.
-    map_ip: [your wan ip here]
-
-</code>
+```HercScript
+// Map Server IP
+// The IP address which clients will use to connect.
+// Set this to what your server's public IP address is.
+map_ip: [your wan ip here]
+```
 
 Make sure to make any changes in the import folder as always.
 
@@ -253,17 +242,22 @@ sub-forum for things that go wrong with Hercules connecting or if errors pop up 
 
 ### CHARACTER_INFO size error!!
 
-To fix this, locate the src/common folder and open mmo.h in notepad. Find the following line: <code>
+To fix this, locate the src/common folder and open mmo.h in notepad. Find the following line:
 
-    #ifndef PACKETVER
-    	#define PACKETVER 20110609
-
+```c
+#ifndef PACKETVER
+  #define PACKETVER 20110609
+```
 Edit this Part, put:
 
-    #define PACKETVER YOURCLIENTDATE
+```c
+#define PACKETVER YOURCLIENTDATE
+```
 
 So if my client was 2011-10-25aRagexeRE it would look like:
 
-    #define PACKETVER 20111025
+```c
+#define PACKETVER 20111025
+```
 
 [Category:Configuration](Category:Configuration "wikilink")

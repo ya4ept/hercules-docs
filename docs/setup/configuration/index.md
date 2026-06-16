@@ -55,54 +55,60 @@ restart your servers for the changes to take effect.
 
 ## Changing the base/job experience rates
 
-Open up /conf/battle/exp.conf. Look for: <code>
+Open up /conf/battle/exp.conf. Look for:
 
-    // Rate at which exp. is given. (Note 2)
-    base_exp_rate: 100
+```HercScript
+// Rate at which exp. is given. (Note 2)
+base_exp_rate: 100
 
-    // Rate at which job exp. is given. (Note 2)
-    job_exp_rate: 100
-
-</code>
+// Rate at which job exp. is given. (Note 2)
+job_exp_rate: 100
+```
 
 and change to whatever you want, in multiples of 100. A good rule of thumb is to get your number, say you want 10x
 rates. Input 10, then add 2 zero's (0) to it to make it 1000.
 
 ## Changing multi level ups
 
-Open up /conf/battle/exp.conf. Search for: <code>
+Open up /conf/battle/exp.conf. Search for:
 
-    // Turn this on to allow a player to level up more than once from a kill. (Note 1)
-    multi_level_up: no
+```HercScript
+// Turn this on to allow a player to level up more than once from a kill. (Note 1)
+multi_level_up: no
+```
 
-</code> and change it to a 'yes'.
+and change it to a 'yes'.
 
 ## Changing the required DEX for insta-cast
 
-Open up /conf/battle/skill.conf. Search for: <code>
+Open up /conf/battle/skill.conf. Search for:
 
-    // At what dex does the cast time become zero (instacast)?
-    castrate_dex_scale: 150
+```HercScript
+// At what dex does the cast time become zero (instacast)?
+castrate_dex_scale: 150
+```
 
-</code> And change to whatever you want it to be.
+And change to whatever you want it to be.
 
 ## Changing the max stats
 
-Open up /conf/battle/player.conf. Search for: <code>
+Open up /conf/battle/player.conf. Search for:
 
-    // Max limit of char stats. (agi, str, etc.)
-    max_parameter: 99
+```HercScript
+// Max limit of char stats. (agi, str, etc.)
+max_parameter: 99
 
-    // Same as max_parameter, but for 3rd classes.
-    max_third_parameter: 120
+// Same as max_parameter, but for 3rd classes.
+max_third_parameter: 120
 
-    // Same as max_parameter, but for baby classes.
-    max_baby_parameter: 80
+// Same as max_parameter, but for baby classes.
+max_baby_parameter: 80
 
-    // Same as max_parameter, but for baby 3rd's.
-    max_baby_third_parameter: 108
+// Same as max_parameter, but for baby 3rd's.
+max_baby_third_parameter: 108
+```
 
-</code> And change it to whatever you want it to be.
+And change it to whatever you want it to be.
 
 ## Setting the max levels
 
@@ -110,39 +116,45 @@ Please see [Edit Max Level](Edit_Max_Level "wikilink").
 
 ## Setting PK in your server
 
-Navigate to /conf/battle/misc.conf. Find: <code>
+Navigate to /conf/battle/misc.conf. Find:
 
-    // PK Server Mode.  Turns entire server pvp(excluding towns). Experience loss is doubled if killed by another player.
-    // When players hunt monsters over 20 levels higher, they will receive 15% additional exp., and 25% chance of receiving more items. 
-    // There is a nopvp.txt for setting up maps not to have pk on in this mode.  Novices cannot be attacked and cannot attack.
-    // Normal pvp counter and rank display are disabled as well.
-    // Note: If pk_mode is set to 2 instead of 1 (yes), players will receive a 
-    //   manner penalty of 5 each time they kill another player (see manner_system 
-    //   config to adjust how this will affect players)
-    pk_mode: 0
+```HercScript
+// PK Server Mode.  Turns entire server pvp(excluding towns). Experience loss is doubled if killed by another player.
+// When players hunt monsters over 20 levels higher, they will receive 15% additional exp., and 25% chance of receiving more items. 
+// There is a nopvp.txt for setting up maps not to have pk on in this mode.  Novices cannot be attacked and cannot attack.
+// Normal pvp counter and rank display are disabled as well.
+// Note: If pk_mode is set to 2 instead of 1 (yes), players will receive a 
+//   manner penalty of 5 each time they kill another player (see manner_system 
+//   config to adjust how this will affect players)
+pk_mode: 0
+```
 
-</code> Set this to a '1' for PK mode without karma/manner system, set to '2' to enable karma/manner system.
+Set this to a '1' for PK mode without karma/manner system, set to '2' to enable karma/manner system.
 
-You should also take a look at: <code>
+You should also take a look at:
 
-    // For PK Server Mode. Change this to define the minimum level players can start PK-ing
-    pk_min_level: 55
+```HercScript
+// For PK Server Mode. Change this to define the minimum level players can start PK-ing
+pk_min_level: 55
+```
 
-</code> And change that setting accordingly as well.
+And change that setting accordingly as well.
 
 ## Monsters with HP/MaxHP/Level/percent HP displays
 
 To get your monsters to display either their level, HP/MAXHP or percent of HP remaining, open up
-/conf/battle/monster.conf. Look for: <code>
+/conf/battle/monster.conf. Look for:
 
-    // Display some mob info next to their name? (add as needed)
-    // (does not works on guardian or emperium)
-    // 1: Display mob HP (Hp/MaxHp format)
-    // 2: Display mob HP (Percent of full life format)
-    // 4: Display mob's level
-    show_mob_info: 0
+```HercScript
+// Display some mob info next to their name? (add as needed)
+// (does not works on guardian or emperium)
+// 1: Display mob HP (Hp/MaxHp format)
+// 2: Display mob HP (Percent of full life format)
+// 4: Display mob's level
+show_mob_info: 0
+```
 
-</code> You can change this setting to anything, either 1, 2, 3, 4, 5, 6 or 7, by adding what you want to display
+You can change this setting to anything, either 1, 2, 3, 4, 5, 6 or 7, by adding what you want to display
 together. Please note that not all of the information, if multiple things are displayed, may fit.
 
 For example, I want mob level and mob percent of HP showing, I would set this to 6.
@@ -151,50 +163,52 @@ For example, I want mob level and mob percent of HP showing, I would set this to
 
 Open up /conf/battle/drops.conf and look for the following:
 
-`// The rate the common items are dropped (Items that are in the ETC tab, besides card)`  
-`item_rate_common: 100`  
-`item_rate_common_boss: 100`  
-`item_drop_common_min: 1`  
-`item_drop_common_max: 10000`  
+```HercScript
+// The rate the common items are dropped (Items that are in the ETC tab, besides card)  
+item_rate_common: 100  
+item_rate_common_boss: 100  
+item_drop_common_min: 1  
+item_drop_common_max: 10000  
   
-`// The rate healing items are dropped (items that restore HP or SP)`  
-`item_rate_heal: 100`  
-`item_rate_heal_boss: 100`  
-`item_drop_heal_min: 1`  
-`item_drop_heal_max: 10000`  
+// The rate healing items are dropped (items that restore HP or SP)  
+item_rate_heal: 100  
+item_rate_heal_boss: 100  
+item_drop_heal_min: 1  
+item_drop_heal_max: 10000  
   
-`// The rate at which usable items (in the item tab) other then healing items are dropped.`  
-`item_rate_use: 100`  
-`item_rate_use_boss: 100`  
-`item_drop_use_min: 1`  
-`item_drop_use_max: 10000`  
+// The rate at which usable items (in the item tab) other then healing items are dropped.  
+item_rate_use: 100  
+item_rate_use_boss: 100  
+item_drop_use_min: 1  
+item_drop_use_max: 10000  
   
-`// The rate at which equipment is dropped.`  
-`item_rate_equip: 100`  
-`item_rate_equip_boss: 100`  
-`item_drop_equip_min: 1`  
-`item_drop_equip_max: 10000`  
+// The rate at which equipment is dropped.  
+item_rate_equip: 100  
+item_rate_equip_boss: 100  
+item_drop_equip_min: 1  
+item_drop_equip_max: 10000  
   
-`// The rate at which cards are dropped`  
-`item_rate_card: 100`  
-`item_rate_card_boss: 100`  
-`item_drop_card_min: 1`  
-`item_drop_card_max: 10000`  
+// The rate at which cards are dropped  
+item_rate_card: 100  
+item_rate_card_boss: 100  
+item_drop_card_min: 1  
+item_drop_card_max: 10000  
   
-`// The rate adjustment for the MVP items that the MVP gets directly in their inventory`  
-`item_rate_mvp: 100`  
-`item_drop_mvp_min: 1`  
-`item_drop_mvp_max: 10000`  
+// The rate adjustment for the MVP items that the MVP gets directly in their inventory  
+item_rate_mvp: 100  
+item_drop_mvp_min: 1  
+item_drop_mvp_max: 10000  
   
-`// The rate adjustment for card-granted item drops.`  
-`item_rate_adddrop: 100`  
-`item_drop_add_min: 1`  
-`item_drop_add_max: 10000`  
+// The rate adjustment for card-granted item drops.  
+item_rate_adddrop: 100  
+item_drop_add_min: 1  
+item_drop_add_max: 10000  
   
-`// Rate adjustment for Treasure Box drops (these override all other modifiers)`  
-`item_rate_treasure: 100`  
-`item_drop_treasure_min: 1`  
-`item_drop_treasure_max: 10000`
+// Rate adjustment for Treasure Box drops (these override all other modifiers)  
+item_rate_treasure: 100  
+item_drop_treasure_min: 1  
+item_drop_treasure_max: 10000
+```
 
 All item_rate\_\* values can range from 0 to 1000000 (100 = 100%) and item_drop\_\* values can range from 1 to 10000
 (100 = 1.00%). The meaning of the lines is explained using the common items block, but can be applied to other blocks as
@@ -226,31 +240,35 @@ higher than this value, is set to this value.
 ## Setting a limit on the amount of castles a guild can own
 
 You can limit the amount of castles a guild can hold. Any guild that has the allotted number of castles will deal '0'
-damage to the emp they try to take after hitting the threshold. Open up /conf/battle/guild.conf. Find: <code>
+damage to the emp they try to take after hitting the threshold. Open up /conf/battle/guild.conf. Find:
 
-    // Maximum castles one guild can own (0 = unlimited)
-    guild_max_castles: 0
+```HercScript
+// Maximum castles one guild can own (0 = unlimited)
+guild_max_castles: 0
+```
 
-</code> Set this to whatever you want the maximum to be.
+Set this to whatever you want the maximum to be.
 
 ## Setting what characters are allowed in a character name
 
 Typically, we don't want character names that contain ASCII weird characters or whatnot. Here is a great example that
 will limit the characters a name can use to what's on the standard American Keyboard. Open up /conf/char_athena.conf and
-look for: <code>
+look for:
 
-    // Manage possible letters/symbol in the name of charater. Control character (0x00-0x1f) are never accepted. Possible values are:
-    // NOTE: Applies to character, party and guild names.
-    // 0: no restriction (default)
-    // 1: only letters/symbols in 'char_name_letters' option.
-    // 2: Letters/symbols in 'char_name_letters' option are forbidden. All others are possibles.
-    char_name_option: 1
+```HercScript
+// Manage possible letters/symbol in the name of charater. Control character (0x00-0x1f) are never accepted. Possible values are:
+// NOTE: Applies to character, party and guild names.
+// 0: no restriction (default)
+// 1: only letters/symbols in 'char_name_letters' option.
+// 2: Letters/symbols in 'char_name_letters' option are forbidden. All others are possibles.
+char_name_option: 1
 
-    // Set the letters/symbols that you want use with the 'char_name_option' option.
-    // Note: Don't add spaces unless you mean to add 'space' to the list.
-    char_name_letters: `1234567890-=qwertyuiop[]\asdfghjkl;'zxcvbnm,./~!@#$%^&*()_+QWERTYUIOP{}|ASDFGHJKL:"ZXCVBNM<>?
+// Set the letters/symbols that you want use with the 'char_name_option' option.
+// Note: Don't add spaces unless you mean to add 'space' to the list.
+char_name_letters: `1234567890-=qwertyuiop[]\asdfghjkl;'zxcvbnm,./~!@#$%^&*()_+QWERTYUIOP{}|ASDFGHJKL:"ZXCVBNM<>?
+```
 
-</code> And set it to exactly what I have here.
+And set it to exactly what I have here.
 
 ## Changing "Welcome to Hercules SVN Version!" text
 
@@ -269,22 +287,24 @@ This is where you put the path to your Ragnarok Online directory. You only need 
 
 Example:
 
-`//-----------------------------------------`  
-`// GRF List`  
-`//-----------------------------------------`  
-`// grf: C:\path\to\RO\data.grf`  
-`// You may add more in this format`  
-`// grf: `<data file path>  
-`grf: C:\Program Files\Gravity\RO\data.grf`  
-`grf: C:\Program Files\Gravity\RO\rdata.grf`  
-`grf: C:\Program Files\Gravity\RO\YourRO.grf`  
-  
-`//------ Others ---------------------------`  
-  
-`// Data Directory (without the actual data\ though)`  
-`// the below example would use C:\path\to\RO\data\`  
-`//data_dir: C:\path\to\RO\`  
-`data_dir: C:\Program Files\Gravity\RO\`
+```
+//-----------------------------------------
+// GRF List
+//-----------------------------------------
+// grf: C:\path\to\RO\data.grf
+// You may add more in this format
+// grf: <data file path>
+grf: C:\Program Files\Gravity\RO\data.grf
+grf: C:\Program Files\Gravity\RO\rdata.grf
+grf: C:\Program Files\Gravity\RO\YourRO.grf
+
+//------ Others ---------------------------
+
+// Data Directory (without the actual data\ though)
+// the below example would use C:\path\to\RO\data\
+//data_dir: C:\path\to\RO\
+data_dir: C:\Program Files\Gravity\RO\
+```
 
 If you have a custom GRF you add it here. For 64-bit Windows the path will be Program Files(x86).
 
@@ -298,13 +318,15 @@ numbers for other GM levels.
 
 In client.conf, change the following numbers to the number of hairstyles/palettes you have:
 
-`// valid range of dye's and styles on the client`  
-`min_hair_style: 0`  
-`max_hair_style: 25`  
-`min_hair_color: 0`  
-`max_hair_color: 8`  
-`min_cloth_color: 0 `  
-`max_cloth_color: 4`
+```
+// valid range of dye's and styles on the client
+min_hair_style: 0
+max_hair_style: 25
+min_hair_color: 0
+max_hair_color: 8
+min_cloth_color: 0
+max_cloth_color: 4
+```
 
 Don't go past the number of hairstyles/palettes you have though, or else you might get errors when using a
 hairstyle/palette NPC, but only if the NPC goes over the number of hairstyles/palettes you have.
@@ -314,9 +336,11 @@ hairstyle/palette NPC, but only if the NPC goes over the number of hairstyles/pa
 If you do not want to update your map-cache each time your maps change or are added, you might want to read map data
 from GRFs. To do so, you need to edit map_athena.conf at:
 
-`// Read map data from GATs and RSWs in GRF files or a data directory`  
-`// as referenced by grf-files.txt rather than from the mapcache?`  
-`use_grf: no`
+```
+// Read map data from GATs and RSWs in GRF files or a data directory
+// as referenced by grf-files.txt rather than from the mapcache?
+use_grf: no
+```
 
 Set this value to **yes**, to enable GRFs as map data storage. You need to set-up
 [grf-files.txt](#Grf-files.txt "wikilink") to point to the archives, which contain your maps. Note, that

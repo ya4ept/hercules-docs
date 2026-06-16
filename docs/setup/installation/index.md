@@ -47,12 +47,13 @@ You will also need [subversion](http://subversion.tigris.org/)
 A simple make and make install is all that is needed for most of the packages. You can find
 [instructions](:Category:Installation "wikilink") and readmes in each of the downloads for your distro telling you how
 to install and compile each package. Once subversion is installed, you can download Hercules's latest source via
-[GIT](GIT "wikilink").  
-<code>
+[GIT](GIT "wikilink").
 
-    $ git clone git://github.com/HerculesWS/Hercules.git hercules 
+```sh
+$ git clone git://github.com/HerculesWS/Hercules.git hercules 
+```
 
-</code> for trunk
+for trunk
 
 ### Windows OS's
 

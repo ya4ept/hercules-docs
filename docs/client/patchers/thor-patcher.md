@@ -276,19 +276,18 @@ Config.ini contains the following lines:
 
 ## Custom Buttons
 
-<code>
+```ini
+[Button:Name]
+Default='images/button1.png'
+OnHover='images/button2.png'
+OnDown='images/button3.png'
 
-    [Button:Name]
-    Default='images/button1.png'
-    OnHover='images/button2.png'
-    OnDown='images/button3.png'
-
-    Left=80
-    Top=406
-    Mode=1
-    Action='http://example.com'
-
-</code> Declares a new button
+Left=80
+Top=406
+Mode=1
+Action='http://example.com'
+```
+Declares a new button
 
 - \[Button:Name\]
   - Name or ID, must be unique for each and every button
@@ -318,16 +317,15 @@ Config.ini contains the following lines:
 
 ## Custom Notice Box
 
-<code>
-
-    [NoticeBox:Name]
-    Width=347
-    Height=250
-    Left=21
-    Top=217
-    URL='http://domain.com/patch/notice.html'
-
-</code> Declares the notice box
+```ini
+[NoticeBox:Name]
+Width=347
+Height=250
+Left=21
+Top=217
+URL='http://domain.com/patch/notice.html'
+```
+Declares the notice box
 
 - \[NoticeBox:Name\]
   - Name or ID, must be unique for each and every notice boxes

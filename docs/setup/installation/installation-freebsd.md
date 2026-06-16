@@ -19,125 +19,131 @@ already installed the ports collection, if you have not, I suggest you do that n
 ## Ports Collection
 
 The Ports Collection is a set of files used to compile and install applications on FreeBSD. While this is not a guide
-for FreeBSD, its recommended to obtain the same as given below: <code>
+for FreeBSD, its recommended to obtain the same as given below:
 
-    # portsnap fetch
-    Download a compressed snapshot of the Ports Collection into /var/db/portsnap.
+```sh
+# portsnap fetch
+Download a compressed snapshot of the Ports Collection into /var/db/portsnap.
 
-    # portsnap extract
-    When running Portsnap for the first time, extract the snapshot into /usr/ports
-
-</code>
+# portsnap extract
+When running Portsnap for the first time, extract the snapshot into /usr/ports
+```
 
 ## wget
 
-wget is a download manager available on FreeBSD and can be your bread and butter while working on FreeBSD. <code>
+wget is a download manager available on FreeBSD and can be your bread and butter while working on FreeBSD.
 
-    # whereis wget
-    wget: /usr/ports/www/wget
-    # cd /usr/ports/www/wget && make && make install
-    # make clean
-    # rehash
-
-</code>
+```console
+# whereis wget
+wget: /usr/ports/www/wget
+# cd /usr/ports/www/wget && make && make install
+# make clean
+# rehash
+```
 
 ## gmake
 
-gmake, or GNUMake, is the GCC compiler used for FreeBSD. <code>
+gmake, or GNUMake, is the GCC compiler used for FreeBSD.
 
-    # whereis gmake
-    gmake: /usr/ports/devel/gmake
-    # cd /usr/ports/devel/gmake && make && make install
-    # make clean
-    # rehash
-
-</code>
+```console
+# whereis gmake
+gmake: /usr/ports/devel/gmake
+# cd /usr/ports/devel/gmake && make && make install
+# make clean
+# rehash
+```
 
 ## unrar
 
-unrar is a tool to unrar .rar's in BSD. <code>
+unrar is a tool to unrar .rar's in BSD.
 
-    # whereis unrar
-    unrar: /usr/ports/archivers/unrar
-    $ cd /usr/ports/archivers/unrar
-    $ make clean
-    $ make install
-    $ rehash
-
-</code>
+```console
+# whereis unrar
+unrar: /usr/ports/archivers/unrar
+$ cd /usr/ports/archivers/unrar
+$ make clean
+$ make install
+$ rehash
+```
 
 ## GCC
 
 GCC is the GNU Compiler Collection and front ends for C, C++ and other languages. This may not be available on the
-system but it can be obtained as below: <code>
+system but it can be obtained as below:
 
-    # wget http://www.netgull.com/gnu/gcc/gcc-###.tar.gz (Where ## is the version number. visit the mirror to find out)
-    # tar -xvf gcc-###.tar.gz
-    # cd gcc*
-    # make && make install
-    # make clean
-    # rehash
-
-</code>
+```console
+# wget http://www.netgull.com/gnu/gcc/gcc-###.tar.gz (Where ## is the version number. visit the mirror to find out)
+# tar -xvf gcc-###.tar.gz
+# cd gcc*
+# make && make install
+# make clean
+# rehash
+```
 
 ## gdb
 
 GDB is handy tool to have on a development machine, as it can take backtraces of crashes and help you find what went
 wrong. It is probable that this is already available on your FreeBSD, but if it's not, here's how you can install it:
-<code>
 
-    # wget http://ftp.gnu.org/gnu/gdb/gdb-###.tar.gz (again, where ### is the version number, check out the mirror)
-    # tar -xvf gdb-###.tar.gz
-    # cd gdb*
-    # make && make install
-    # make clean 
-    # rehash
-
-</code>
+```console
+# wget http://ftp.gnu.org/gnu/gdb/gdb-###.tar.gz (again, where ### is the version number, check out the mirror)
+# tar -xvf gdb-###.tar.gz
+# cd gdb*
+# make && make install
+# make clean 
+# rehash
+```
 
 ## git
 
-[Git](Git "wikilink") is the versioning system used for Hercules and how we will get our copy of Hercules. <code>
+[Git](Git "wikilink") is the versioning system used for Hercules and how we will get our copy of Hercules.
 
-    # whereis git
-    git: /usr/ports/devel/git
-    # cd /usr/ports/devel/git && make && make install
-    # make clean
-    # rehash
-
-</code>
+```console
+# whereis git
+git: /usr/ports/devel/git
+# cd /usr/ports/devel/git && make && make install
+# make clean
+# rehash
+```
 
 Now, let's go ahead and download Hercules. We'll use git for this.
 
-    $ su root
-    # adduser //create a Hercules user
-    # exit
-    $ su hercules
-    $ cd /home/hercules
-    $ git clone https://github.com/HerculesWS/Hercules.git Hercules
-    $
+```console
+$ su root
+# adduser //create a Hercules user
+# exit
+$ su hercules
+$ cd /home/hercules
+$ git clone https://github.com/HerculesWS/Hercules.git Hercules
+```
 
 Now, we can populate the tables with the .sql files in Hercules. Navigate to your /sql-files/ folder in the Hercules
 files you just checked out.
 
-    $ cd /home/hercules/trunk/sql-files
-    $ mysql -uuser -ppassword myr-odb < main.sql
-    $ mysql -uuser -ppassword myro-db < logs.sql
+```console
+$ cd /home/hercules/trunk/sql-files
+$ mysql -uuser -ppassword myr-odb < main.sql
+$ mysql -uuser -ppassword myro-db < logs.sql
+```
 
 Now, you'll want to follow the steps in the [:Category:Configuration](:Category:Configuration "wikilink") and
 [Connecting](Connecting "wikilink") pages to get your Hercules configured. Once you've made all your source changes, you
 can compile Hercules. While you're in the root of your Hercules folder, issue the following commands to compile your
 server:
 
-    $ ./configure
-    $ gmake clean
-    $ gmake sql
-    $ rehash
+```console
+$ ./configure
+$ gmake clean
+$ gmake sql
+$ rehash
+```
 
 **Important Note:** If you are using a 32 bit FreeBSD you have to use
 
-    chmod 777 configure
-    $ ./configure --disable-64bit
+```console
+chmod 777 configure
+$ ./configure --disable-64bit
+```
 
 instead
 
@@ -146,7 +152,9 @@ on! This will also prevent your from having difficulties with file permissions.
 
 And to start your servers, you can simply use the following command:
 
-    $ ./athena-start <command> (start | stop | restart | status)
+```console
+$ ./athena-start <command> (start | stop | restart | status)
+```
 
 And that's it! You now have Hercules running on your FreeBSD machine!
 
